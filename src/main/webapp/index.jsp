@@ -6,16 +6,15 @@
     <link rel="stylesheet" href="static/bootstrap.min.css">
 </head>
 <body>
-
 <div class="row">
-    <div class="card col-12">
+    <div class="card col-3">
         <a href="orderAll.jsp" class="bg-info text-dark form-control">all</a>
         <a href="orderOpen.jsp" class="bg-info text-dark form-control">open</a>
         <a href="orderInprogres.jsp" class="bg-info text-dark form-control">inprogres</a>
         <a href="orderCompleted.jsp" class="bg-info text-dark form-control">completed</a>
     </div>
-    <div class="col-12">
-        <button class="btn btn-primary btn-lg btn-block">Login</button>
+    <div class="col-9">
+        <a href="login.jsp" class="btn btn-primary btn-lg btn-block">Login</a>
     </div>
 </div>
 
