@@ -16,4 +16,11 @@ public class UserRepo {
         }
         return resultList.get(0);
     }
+
+    public static List<Users> findAll() {
+        EntityManager entityManager = emf.createEntityManager();
+        List<Users> users = entityManager.createQuery("select u from Users u", Users.class)
+                .getResultList();
+        return users;
+    }
 }

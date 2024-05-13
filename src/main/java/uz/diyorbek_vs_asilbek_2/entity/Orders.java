@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import uz.diyorbek_vs_asilbek_2.repo.BaseRepo;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -17,13 +18,12 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Orders {
-
+public class Orders extends BaseRepo<Orders,Users> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @OneToMany
-    private List<Orders >order;
+    private List<Users>order;
     @CreationTimestamp
     private LocalDateTime orderDate;
     private String orderStatus;

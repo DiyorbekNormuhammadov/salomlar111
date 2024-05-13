@@ -1,8 +1,10 @@
-
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="uz.diyorbek_vs_asilbek_2.entity.Orders" %>
 <%@ page import="uz.diyorbek_vs_asilbek_2.repo.OrderRepo" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%@ page import="uz.diyorbek_vs_asilbek_2.entity.Users" %>
+<%@ page import="uz.diyorbek_vs_asilbek_2.repo.UserRepo" %>
+<%@ page import="java.util.Objects" %><%--
   Created by IntelliJ IDEA.
   User: user
   Date: 2024-05-13
@@ -17,10 +19,11 @@
 </head>
 <body>
 <%
-    List<Orders> orders= OrderRepo.all();
-    List<Orders> ordersList=new ArrayList<>();
+    List<Users> users = UserRepo.findAll();
+    List<Orders> orders = OrderRepo.all();
+    List<Orders> ordersList = new ArrayList<>();
     for (Orders order : orders) {
-        if(order.getOrderStatus().equals("inprogres")){
+        if (order.getOrderStatus().equals("inprogres")) {
             ordersList.add(order);
         }
     }
@@ -34,7 +37,7 @@
         <a href="orderCompleted.jsp" class="bg-info text-dark form-control">completed</a>
     </div>
     <div class="col-9">
-        <a href="login.jsp" class="btn btn-primary btn-lg btn-block">Login</a>
+        <a href="/admin.jsp" class="btn btn-primary btn-lg btn-block">Admin panel</a>
     </div>
 </div>
 
@@ -50,12 +53,16 @@
     <tbody>
     <% for (Orders orders1 : ordersList) {%>
     <tr>
-        <td><%=orders1.getId()%></td>
-        <td><%=orders1.getOrderDate()%></td>
-        <td><%=orders1.getOrderStatus()%></td>
-        <td>User</td>
+        <td><%=orders1.getId()%>
+        </td>
+        <td><%=orders1.getOrderDate()%>
+        </td>
+        <td><%=orders1.getOrderStatus()%>
+        </td>
+        <td><%=orders1.getOrder().isEmpty() ? "" : orders1.getOrder().stream().flatMap(users1 -> users.stream().filter(users2 -> Objects.equals(users2.getId(), users1.getId())))%>
+        </td>
     </tr>
-    <%  } %>
+    <% } %>
     </tbody>
 </table>
 </body>

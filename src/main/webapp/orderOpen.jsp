@@ -34,9 +34,8 @@
         <a href="orderCompleted.jsp" class="bg-info text-dark form-control">completed</a>
     </div>
     <div class="col-9">
-        <a href="login.jsp" class="btn btn-primary btn-lg btn-block">Login</a>
+        <a href="/admin.jsp" class="btn btn-primary btn-lg btn-block">Admin panel</a>
     </div>
-</div>
 
 <table class="table table-striped">
     <thead>

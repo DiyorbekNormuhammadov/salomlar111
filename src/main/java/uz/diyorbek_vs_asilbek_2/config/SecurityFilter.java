@@ -13,8 +13,6 @@ import java.util.List;
 @WebFilter("/*")
 
 public class SecurityFilter implements Filter {
-    int a = 0;
-
     List<String> openPages = List.of(
             "/",
             "/orderAll.jsp",
@@ -24,16 +22,11 @@ public class SecurityFilter implements Filter {
             "static/bootstrap.min.css",
             "/orderCompleted.jsp",
             "/orderInprogres.jsp",
-            "orderOpen.jsp"
+            "/orderOpen.jsp"
     );
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-//        ++a;
-//        if (a == 1) {
-//            MyListener.generateData();
-//        }
-//        ++a;
         HttpServletRequest request1 = (HttpServletRequest) request;
         HttpServletResponse response1 = (HttpServletResponse) response;
         String requestURI = request1.getRequestURI();
